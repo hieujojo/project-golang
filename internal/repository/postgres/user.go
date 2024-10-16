@@ -39,3 +39,7 @@ func (r *userRepo) GetUser(conditions map[string]any) (*domain.User, error) {
 
 	return &user, nil
 }
+
+func (r *userRepo) UpdateUser(data *domain.UserUpdate) error {
+    return r.db.Model(&domain.User{}).Where("id = ?", data.ID).Updates(data).Error
+}

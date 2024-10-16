@@ -110,3 +110,17 @@ var (
 		"ErrEmailExisted",
 	)
 )
+
+type UserUpdate struct {
+    ID        uuid.UUID     `json:"id"`
+    Email     *string       `json:"email,omitempty"` 
+    FirstName *string       `json:"first_name,omitempty"`
+    LastName  *string       `json:"last_name,omitempty"`
+    Phone     *string       `json:"phone,omitempty"`
+    Role      *UserRole     `json:"role,omitempty"`
+    Status    *clients.Status `json:"status,omitempty"`
+}
+
+func (UserUpdate) TableName() string {
+    return User{}.TableName()
+}

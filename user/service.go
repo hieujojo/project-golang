@@ -26,6 +26,26 @@ type userService struct {
 	expiry        int
 }
 
+// DeleteUser implements gin.UserService.
+func (s *userService) DeleteUser(id uuid.UUID) error {
+	panic("unimplemented")
+}
+
+// GetAllUser implements gin.UserService.
+func (s *userService) GetAllUser() ([]domain.User, error) {
+	panic("unimplemented")
+}
+
+// GetUserByID implements gin.UserService.
+func (s *userService) GetUserByID(id uuid.UUID) (domain.User, error) {
+	panic("unimplemented")
+}
+
+// UpdateUser implements gin.UserService.
+func (s *userService) UpdateUser(id uuid.UUID, user *domain.UserUpdate) error {
+	panic("unimplemented")
+}
+
 func NewUserService(repo UserRepo, hasher Hasher, tokenProvider tokenprovider.Provider, expiry int) *userService {
 	return &userService{
 		userRepo:      repo,
